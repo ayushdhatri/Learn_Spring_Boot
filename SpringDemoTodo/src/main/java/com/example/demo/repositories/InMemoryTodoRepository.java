@@ -4,15 +4,17 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
+import org.springframework.context.annotation.Profile;
+
 
 import java.util.List;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 import com.example.demo.schema.Todo;
 
-@Repository
+@Repository("inMemoryTodoRepository")
 @AllArgsConstructor
-@Qualifier
+@Profile("PROD")
 public class InMemoryTodoRepository implements  ITodoRepository {
 
     private List<Todo> todos = new ArrayList<>();
