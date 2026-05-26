@@ -79,6 +79,8 @@ public class InMemoryTodoRepository implements  ITodoRepository {
     @Override
     public void updateTodo(Todo todo, Long id) {
        // logic to remove todo from list using value of id
+        todos.removeIf(todos -> todos.getId().equals(id));
+        todos.add(todo);
 
 
     }

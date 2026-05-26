@@ -13,6 +13,9 @@ public class Todo {
     private boolean completed;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    public Long getId(){
+        return this.id;
+    }
 
     public Todo() {
 

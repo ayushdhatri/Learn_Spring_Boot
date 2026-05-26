@@ -19,4 +19,10 @@ public class InMemoryMapTodoRepository implements ITodoRepository{
     public void addTodo(Todo todo) {
 
     }
+
+    @Override
+    public void updateTodo(Todo todo, Long id) {
+        return;// as this class is dummy not used in production
+    }
+
 }

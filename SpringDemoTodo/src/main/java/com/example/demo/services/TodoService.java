@@ -32,6 +32,5 @@ public class TodoService implements ITodoService {
     @Override
     public void updateTodo(Todo todo, Long id) {
         todoRepository.updateTodo(todo, id);
-
     }
 }
