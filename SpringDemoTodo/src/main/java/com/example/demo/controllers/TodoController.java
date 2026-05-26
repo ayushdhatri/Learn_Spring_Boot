@@ -6,9 +6,7 @@ import com.example.demo.services.TodoService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +22,22 @@ public class TodoController {
     public List<Todo> getAllTodos(){
         return todoService.getAllTodos();
     }
+
+    // TODO :  add a new todos
+    @PostMapping
+    public void createTodo(@RequestBody Todo todo){// here ideally we should acccept DTO because two systems are different
+        todoService.createTodo(todo);
+        return;// ideally we should return a successfully message
+    }
+
+    // TODO : update a todo
+    @PutMapping
+    public void updateTodo(@RequestBody Todo todo, @PathVariable Long id){
+        todoService.updateTodo(todo, id);
+        return;
+    }
+
+    // TODO : delete a todo
+
 
 }

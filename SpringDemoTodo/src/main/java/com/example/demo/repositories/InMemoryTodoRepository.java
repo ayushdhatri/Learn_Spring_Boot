@@ -14,7 +14,7 @@ import com.example.demo.schema.Todo;
 
 @Repository("inMemoryTodoRepository")
 @AllArgsConstructor
-@Profile("PROD")
+//@Profile("PROD")
 public class InMemoryTodoRepository implements  ITodoRepository {
 
     private List<Todo> todos = new ArrayList<>();
@@ -69,5 +69,17 @@ public class InMemoryTodoRepository implements  ITodoRepository {
     @Override
     public List<Todo> findAll() {
         return todos;
+    }
+
+    @Override
+    public void addTodo(Todo todo) {
+        this.todos.add(todo);
+    }
+
+    @Override
+    public void updateTodo(Todo todo, Long id) {
+       // logic to remove todo from list using value of id
+
+
     }
 }

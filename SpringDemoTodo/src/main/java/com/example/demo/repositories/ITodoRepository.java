@@ -8,4 +8,6 @@ import java.util.List;
 @Repository
 public interface ITodoRepository {
     List<Todo> findAll();
+    void addTodo(Todo todo);
+    void updateTodo(Todo todo, Long id);
 }
