@@ -38,6 +38,4 @@ public class TodoController {
     }
 
     // TODO : delete a todo
-
-
 }

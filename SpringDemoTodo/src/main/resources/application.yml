@@ -1,0 +1,19 @@
+
+spring:
+  application:
+    name : demo
+  profiles:
+    active: ${PROFILE_DEV}
+  datasource:
+    url : jdbc:mysql://localhost:3306/fakecommerce
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa :
+    show-sql : true
+    hibernate:
+      ddl-auto:
+server:
+  port : ${SPRING_SERVER_PORT:8081}
+
+
+
