@@ -10,13 +10,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@AllArgsConstructor
 @RestController
 @RequestMapping("/api/v1/todos")
 @Controller
 public class TodoController {
     @Autowired
     private final ITodoService todoService;
+
+    public TodoController(ITodoService todoService) {
+        this.todoService = todoService;
+    }
 
     @GetMapping
     public List<Todo> getAllTodos(){

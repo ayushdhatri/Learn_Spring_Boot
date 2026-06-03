@@ -10,6 +10,8 @@ spring:
     show-sql: true       # Added space after colon
     hibernate:
       ddl-auto: update
+server:
+  port: 8081
 
 
 

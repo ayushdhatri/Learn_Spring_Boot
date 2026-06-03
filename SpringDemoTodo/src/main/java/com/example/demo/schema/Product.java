@@ -18,8 +18,10 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)// auto-increment specially for mysql
     private Long id;
+    @Column(nullable = false)
     private String title;
     private String description;
+    @Column(nullable = false)
     private BigDecimal price;
     private String image;
     private String category;
