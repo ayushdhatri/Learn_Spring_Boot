@@ -31,15 +31,14 @@ public class ProductService {
 
     public Product createProduct(CreateProductRequestDto createProductRequestDto){
         // here we need to map createProductRequestDTO to Product using model mapper or manually
-        Product product = new Product();
                 Product product1 = Product.builder()
-                .title("Wireless Mouse")
-                .price(new BigDecimal("29.99"))
-                .category("Electronics")
+                .title(createProductRequestDto.getTitle())
+                .price(createProductRequestDto.getPrice())
+                .category(createProductRequestDto.getImageUrl())
                 .build();
 
-        this.productRepository.save(product);
+        this.productRepository.save(product1);
         // actually we should sent a productResponseDTO but we are sending raw data
-        return product;
+        return product1;
     }
 }
