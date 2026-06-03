@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.dtos.CreateProductRequestDto;
 import com.example.demo.schema.Product;
 import com.example.demo.services.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -28,6 +29,11 @@ public class ProductController {
     @GetMapping("/{id}")
     public Product getProductById(@PathVariable Long id){
         return productService.getProductById(id);
+    }
+
+    @PostMapping
+    public Product createProduct(@RequestBody CreateProductRequestDto createProductRequestDto){
+        return productService.createProduct(createProductRequestDto);
     }
 
 }
