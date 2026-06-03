@@ -5,6 +5,8 @@ import com.example.demo.repositories.ProductRepository;
 import com.example.demo.schema.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -30,6 +32,12 @@ public class ProductService {
     public Product createProduct(CreateProductRequestDto createProductRequestDto){
         // here we need to map createProductRequestDTO to Product using model mapper or manually
         Product product = new Product();
+                Product product1 = Product.builder()
+                .title("Wireless Mouse")
+                .price(new BigDecimal("29.99"))
+                .category("Electronics")
+                .build();
+
         this.productRepository.save(product);
         // actually we should sent a productResponseDTO but we are sending raw data
         return product;
