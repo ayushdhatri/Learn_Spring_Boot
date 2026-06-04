@@ -14,10 +14,8 @@ import java.math.BigDecimal;
 @Builder
 @Entity
 @Table(name="products")
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)// auto-increment specially for mysql
-    private Long id;
+public class Product extends BaseEntity {
+
     @Column(nullable = false)
     private String title;
     private String description;
