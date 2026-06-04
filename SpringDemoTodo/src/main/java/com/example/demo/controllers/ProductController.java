@@ -40,9 +40,14 @@ public class ProductController {
         return this.productService.deleteProduct(id);
     }
 
-    @GetMapping("/category/{category}")
-    public List<Product> findByCategory(@PathVariable String category){
+    @GetMapping("/search")
+    public List<Product> findByCategory(@RequestParam(value = "category", required = false) String category){
         return this.productService.findByCategory(category);
+    }
+
+    @GetMapping("/categories")
+    public List<String> getAllCategory(){
+        return this.productService.getAllCategory();
     }
 
 }
