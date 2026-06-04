@@ -35,5 +35,14 @@ public class ProductController {
     public Product createProduct(@RequestBody CreateProductRequestDto createProductRequestDto){
         return productService.createProduct(createProductRequestDto);
     }
+    @DeleteMapping("/{id}")
+    public boolean deleteProduct(@PathVariable Long id){
+        return this.productService.deleteProduct(id);
+    }
+
+    @GetMapping("/category/{category}")
+    public List<Product> findByCategory(@PathVariable String category){
+        return this.productService.findByCategory(category);
+    }
 
 }

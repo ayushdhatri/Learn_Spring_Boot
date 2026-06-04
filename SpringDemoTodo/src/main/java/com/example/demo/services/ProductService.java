@@ -31,14 +31,22 @@ public class ProductService {
 
     public Product createProduct(CreateProductRequestDto createProductRequestDto){
         // here we need to map createProductRequestDTO to Product using model mapper or manually
-                Product product1 = Product.builder()
+        Product product1 = Product.builder()
                 .title(createProductRequestDto.getTitle())
                 .price(createProductRequestDto.getPrice())
                 .category(createProductRequestDto.getImageUrl())
                 .build();
-
         this.productRepository.save(product1);
         // actually we should sent a productResponseDTO but we are sending raw data
         return product1;
+    }
+
+    public boolean deleteProduct(Long id){
+        this.productRepository.deleteById(id);
+        return true;
+    }
+
+    public List<Product> findByCategory(String category){
+        return this.productRepository.findByCategory(category);
     }
 }
