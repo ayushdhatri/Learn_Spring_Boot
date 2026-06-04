@@ -34,7 +34,7 @@ public class ProductService {
         Product product1 = Product.builder()
                 .title(createProductRequestDto.getTitle())
                 .price(createProductRequestDto.getPrice())
-                .category(createProductRequestDto.getImageUrl())
+                //.category(createProductRequestDto.getCategory()) TODO
                 .build();
         this.productRepository.save(product1);
         // actually we should sent a productResponseDTO but we are sending raw data

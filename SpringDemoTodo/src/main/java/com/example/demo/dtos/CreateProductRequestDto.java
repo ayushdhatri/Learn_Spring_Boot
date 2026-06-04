@@ -1,5 +1,6 @@
 package com.example.demo.dtos;
 
+import com.example.demo.schema.Category;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,5 +17,6 @@ public class CreateProductRequestDto {
     private String description;
     private BigDecimal price;
     private String imageUrl;
+    private Long categoryId;
 
 }

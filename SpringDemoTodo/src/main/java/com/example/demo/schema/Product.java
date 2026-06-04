@@ -18,11 +18,18 @@ public class Product extends BaseEntity {
 
     @Column(nullable = false)
     private String title;
+
     private String description;
+
     @Column(nullable = false)
     private BigDecimal price;
+
     private String image;
-    private String category;
+
+    @ManyToOne // ManyToOne can be read as many products can have one Category
+    @JoinColumn(name="category_id", nullable = false)
+    private Category category;
+
     private String rating;
 
 
