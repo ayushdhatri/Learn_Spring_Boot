@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -26,9 +27,11 @@ public class Product extends BaseEntity {
 
     private String image;
 
-    @ManyToOne // ManyToOne can be read as many products can have one Category
+    @ManyToOne(fetch = FetchType.LAZY) // ManyToOne can be read as many products can have one Category
     @JoinColumn(name="category_id", nullable = false)
     private Category category;
+
+    private List<Order> orders;
 
     private String rating;
 

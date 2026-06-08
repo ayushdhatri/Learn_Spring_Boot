@@ -1,2 +1,6 @@
-package com.example.demo.dtos;public class GetProductResponseDto {
+package com.example.demo.dtos;
+
+public class GetProductResponseDto {
+
+
 }
