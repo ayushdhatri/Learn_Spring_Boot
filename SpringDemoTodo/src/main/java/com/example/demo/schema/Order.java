@@ -1,10 +1,7 @@
 package com.example.demo.schema;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,7 +21,13 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private List<Product> products;
+//    @ManyToMany
+//    @JoinTable(
+//            name="order_product",
+//            joinColumns = @JoinColumn(name="order_id") ,// the FK belonging to the same schema
+//            inverseJoinColumns = @JoinColumn(name="product_id")// the FK belonging to product schema
+//    )
+//    private List<Product> products;
 
 
 }

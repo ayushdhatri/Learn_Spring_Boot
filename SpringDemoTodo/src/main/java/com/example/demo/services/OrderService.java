@@ -21,4 +21,9 @@ public class OrderService {
         return true;
     }
 
+    public boolean deleteOrder(Long id){
+        this.orderRepository.deleteById(id);
+        return true;
+    }
+
 }
