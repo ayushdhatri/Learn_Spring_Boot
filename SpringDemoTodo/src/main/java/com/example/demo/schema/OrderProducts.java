@@ -1,12 +1,18 @@
 package com.example.demo.schema;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Fetch;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Table(name="order_products")
 public class OrderProducts extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)

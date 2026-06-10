@@ -16,7 +16,7 @@ public class OrderService {
 
     public boolean createOrder(CreateOrderRequestDTO createOrderRequestDTO){
         // create order entity out of dto and save it
-        Order newOrder = Order.builder().products(createOrderRequestDTO.getProducts()).build();
+        Order newOrder = Order.builder().build();
         this.orderRepository.save(newOrder);
         return true;
     }

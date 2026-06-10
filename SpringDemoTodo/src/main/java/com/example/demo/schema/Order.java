@@ -15,11 +15,11 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
-public class Order {
+public class Order extends BaseEntity {
     // ech order has id, user details(which users order is this), and list of products their in that order
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
+
+    private OrderStatus status;
 
 //    @ManyToMany
 //    @JoinTable(
@@ -27,7 +27,7 @@ public class Order {
 //            joinColumns = @JoinColumn(name="order_id") ,// the FK belonging to the same schema
 //            inverseJoinColumns = @JoinColumn(name="product_id")// the FK belonging to product schema
 //    )
-//    private List<Product> products;
+
 
 
 }
