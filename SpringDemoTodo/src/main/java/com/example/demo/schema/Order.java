@@ -10,11 +10,12 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
+@Table(name="orders")
 public class Order extends BaseEntity {
     // ech order has id, user details(which users order is this), and list of products their in that order
 
