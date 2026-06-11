@@ -9,9 +9,16 @@ spring:
   jpa:
     show-sql: true       # Added space after colon
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+
 server:
   port: 8081
+
 
 
 

@@ -23,8 +23,6 @@ public class OrderProducts extends BaseEntity {
     @JoinColumn(name="product_id", nullable = false)
     private Product product;
 
-    private Integer column1;
-    private Integer column2;
 
 
 }
