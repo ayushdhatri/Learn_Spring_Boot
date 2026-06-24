@@ -1,6 +1,7 @@
 package com.example.demo.services;
 
 import com.example.demo.dtos.CreateProductRequestDto;
+import com.example.demo.exceptions.ResourceNotFoundException;
 import com.example.demo.repositories.ProductRepository;
 import com.example.demo.schema.Product;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +13,6 @@ import java.util.List;
 @Service
 
 public class ProductService {
-
     // Best Practice Tip: Make injected fields 'private' instead of 'public'
     // to maintain encapsulation!
     private final ProductRepository productRepository;
@@ -26,7 +26,7 @@ public class ProductService {
     }
 
     public Product getProductById(Long id){
-        return productRepository.findById(id).orElseThrow(()-> new RuntimeException("Product not found"));
+        return productRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Product with id" + id + " does not exist"));
     }
 
     public Product createProduct(CreateProductRequestDto createProductRequestDto){

@@ -1,9 +1,12 @@
 package com.example.demo.controllers;
 
+import com.example.demo.dtos.APIResponse;
 import com.example.demo.dtos.CreateProductRequestDto;
 import com.example.demo.schema.Product;
 import com.example.demo.services.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,8 +30,18 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public Product getProductById(@PathVariable Long id){
-        return productService.getProductById(id);
+    public ResponseEntity<APIResponse<Product>> getProductById(@PathVariable Long id){
+        Product existedProduct = productService.getProductById(id);
+        APIResponse<Product> response = new APIResponse<>();
+        response.setData(existedProduct);
+        response.setMessage("Product returned successfully");
+        response.setSuccess(true);
+        response.setError("");
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(response)
+                ;
+
     }
 
     @PostMapping
