@@ -16,6 +16,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name="orders")
+@Data
 public class Order extends BaseEntity {
     // ech order has id, user details(which users order is this), and list of products their in that order
 
