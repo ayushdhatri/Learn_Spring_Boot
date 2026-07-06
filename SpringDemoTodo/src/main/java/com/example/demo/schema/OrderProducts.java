@@ -8,11 +8,12 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Fetch;
 
 @Entity
-@Data
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Table(name="order_products")
+@Data
 public class OrderProducts extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)

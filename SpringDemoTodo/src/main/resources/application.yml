@@ -15,9 +15,16 @@ spring:
     locations: classpath:db/migration
     baseline-on-migrate: true
 
+  redis:
+    host : localhost
+    port : 6379
+
+
+
 
 server:
   port: 8081
+
 
 
 

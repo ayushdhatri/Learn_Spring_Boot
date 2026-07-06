@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 @SQLDelete(sql="UPDATE reviews SET deleted_at = CURRENT_TIMESTAMP where id = ?")
 @SQLRestriction("WHERE deleted_at IS NULL")
 @Table(name = "reviews")
-@Data
+
 public class Review extends BaseEntity{
     private String review;
 

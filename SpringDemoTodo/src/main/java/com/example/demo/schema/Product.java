@@ -9,12 +9,14 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.util.List;
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name="products")
+@Table(name="products",
+        indexes = {@Index(name = "idx_price_rating", columnList = "price, rating"),
+        @Index(name = "idx_price", columnList = "price")})
 public class Product extends BaseEntity {
 
     @Column(nullable = false)

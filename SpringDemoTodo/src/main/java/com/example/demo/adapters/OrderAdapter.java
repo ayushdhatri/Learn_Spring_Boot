@@ -15,12 +15,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Data
-@AllArgsConstructor
 @RequiredArgsConstructor
 public class OrderAdapter {
     private final OrderProductRepository orderProductRepository;
     public  GetOrderResponseDTO mapToGetOrderResponseDTO(Order order){
-        List<OrderProducts> orderProductsList = orderProductRepository.findByOrderId(order.getId()));
+        List<OrderProducts> orderProductsList = orderProductRepository.findByOrderId(order.getId());
         return GetOrderResponseDTO.builder()
                 .id(order.getId())
                 .status(order.getStatus())
