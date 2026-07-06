@@ -1,9 +1,11 @@
 package com.example.demo.services;
 
 import com.example.demo.dtos.CreateProductRequestDto;
+import com.example.demo.dtos.GetProductResponseDto;
 import com.example.demo.exceptions.ResourceNotFoundException;
 import com.example.demo.repositories.ProductRepository;
 import com.example.demo.schema.Product;
+import com.example.demo.services.cache.ProductRedisCache;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,9 +18,12 @@ public class ProductService {
     // Best Practice Tip: Make injected fields 'private' instead of 'public'
     // to maintain encapsulation!
     private final ProductRepository productRepository;
+    private final ProductRedisCache productRedisCache;
 
-    public ProductService(ProductRepository productRepository) {
+    public ProductService(ProductRepository productRepository, ProductRedisCache productRedisCache) {
         this.productRepository = productRepository;
+        this.productRedisCache = productRedisCache;
+
     }
 
     public List<Product> getAllProducts(){
@@ -26,6 +31,14 @@ public class ProductService {
     }
 
     public Product getProductById(Long id){
+        // before making a db class, just check with redis instance having this key or not
+        if(productRedisCache.getProductById(id).isPresent()){
+            GetProductResponseDto getProductResponseDto = productRedisCache.getProductById(id).get();
+            // convert it into product and return it
+            // TOOD - IMPLEMENTATION
+
+        }
+        // before returning the product you can simply update the cache and then return
         return productRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Product with id" + id + " does not exist"));
     }
 

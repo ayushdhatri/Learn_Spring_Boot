@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import tools.jackson.databind.ObjectMapper;
 
 import javax.swing.text.html.Option;
+import java.time.Duration;
 import java.util.Optional;
 
 @Service
@@ -18,7 +19,10 @@ import java.util.Optional;
 @Slf4j
 public class ProductRedisCache {
     private static final String KEY_SUMMARY = "product:summary:";
+    private static final Duration CACHE_TTL = Duration.ofMinutes(1);
+
     private final StringRedisTemplate stringRedisTemplate;
+
 
     private final ObjectMapper objectMapper;
 
