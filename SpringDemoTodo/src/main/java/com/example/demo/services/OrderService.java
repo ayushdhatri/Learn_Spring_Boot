@@ -24,7 +24,7 @@ public class OrderService {
     public List<GetOrderResponseDTO> getAllOrders(){
         List<Order> orders = orderRepository.findAll();// this is order we need to convert to orderResponseDTO
         // here we will use adapter design pattern because order and getOrderResponseDTO have different strcuture
-
+        return null;
 
     }
 

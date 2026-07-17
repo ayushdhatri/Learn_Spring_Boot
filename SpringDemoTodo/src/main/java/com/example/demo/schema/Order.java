@@ -2,10 +2,7 @@ package com.example.demo.schema;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
@@ -16,6 +13,8 @@ import java.util.List;
 @Builder
 @Entity
 @Table(name="orders")
+@Getter
+@Setter
 
 public class Order extends BaseEntity {
     // ech order has id, user details(which users order is this), and list of products their in that order

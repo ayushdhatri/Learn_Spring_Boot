@@ -1,10 +1,7 @@
 package com.example.demo.schema;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -14,6 +11,8 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @Entity
+@Getter
+@Setter
 @Table(name="products",
         indexes = {@Index(name = "idx_price_rating", columnList = "price, rating"),
         @Index(name = "idx_price", columnList = "price")})
