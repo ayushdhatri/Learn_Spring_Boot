@@ -1,6 +1,7 @@
 package strategy;
 
 import enums.LockerSize;
+import exceptions.NoAvailableLockerException;
 import models.Locker;
 
 import java.util.List;
@@ -14,10 +15,14 @@ public class SmallestLockerStrategy implements LockerAssignmentStrategy{
         for(int i = requiredSize.ordinal();i < sizes.length ; i++){
             LockerSize targetSize = sizes[i];
             for(Locker locker : availableLockers){
-                if(locker)
+                if(locker.isAvailable() && locker.getSize().equals(targetSize)){
+                    return locker;
+                }
             }
-
         }
+        throw new NoAvailableLockerException(
+                "No available locker for size " + requiredSize + " or larger"
+        );
 
 
     }
