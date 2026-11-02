@@ -1,0 +1,47 @@
+package models;
+
+import enums.LockerSize;
+import enums.PackageStatus;
+
+public class Package {
+    private final String id;
+    private final String orderId;
+    private PackageStatus status;
+    private final LockerSize lockerSize;
+
+    public Package(String id, String orderId, LockerSize lockerSize){
+        if(id == null || id.isEmpty()){
+            throw new IllegalArgumentException("Package ID cannot be null or empty");
+        }
+        if(orderId == null || orderId.isEmpty()){
+            throw new IllegalArgumentException("Order Id cannot be null or empty");
+        }
+        this.id = id;
+        this.orderId = orderId;
+        this.lockerSize = lockerSize;
+        this.status = PackageStatus.CREATED;
+    }
+
+    public String getId(){
+        return this.id;
+    }
+
+    public String getOrderId(){
+        return this.orderId;
+    }
+
+    public PackageStatus getStatus(){
+        return this.status;
+    }
+
+    public LockerSize getLockerSize(){
+        return this.lockerSize;
+    }
+
+    void setStatus(PackageStatus status){
+        this.status = status;
+    }
+
+
+
+}

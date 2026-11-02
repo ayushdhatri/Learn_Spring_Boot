@@ -1,0 +1,33 @@
+package enums;
+
+public enum LockerSize {
+    SMALL(20,25,30),
+    MEDIUM(30,35,40),
+    LARGE(40,45,55),
+    XL(55,60,70);
+
+    private final double maxHeight;
+    private final double maxWidth;
+    private final double maxDepth;
+
+    LockerSize(double maxHeight, double maxWidth, double maxDepth){
+        this.maxHeight = maxHeight;
+        this.maxWidth = maxWidth;
+        this.maxDepth = maxDepth;
+    }
+
+    public double getMaxHeight(){
+        return this.maxHeight;
+    }
+
+    public double getMaxWidth(){
+        return this.maxWidth;
+    }
+
+    public double getMaxDepth(){
+        return this.maxDepth;
+    }
+
+
+
+}
